@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Siber Zorbalık Tespiti</title>
+</head>
+<body>
+    <h1>Metin Sınıflandırma</h1>
+    <form method="POST">
+        <textarea name="text" rows="5" cols="60" placeholder="Bir metin girin..."></textarea><br><br>
+        <input type="submit" value="Tahmin Et">
+    </form>
+
+    {% if prediction %}
+        <h2>Tahmin Sonucu: {{ prediction }}</h2>
+        <p><strong>Model Doğruluğu:</strong> {{ accuracy }}</p>
+
+        <h3>Precision & Recall</h3>
+        <table border="1">
+            <tr>
+                <th>Sınıf</th>
+                <th>Precision</th>
+                <th>Recall</th>
+            </tr>
+            {% for i in range(metrics.labels|length) %}
+            <tr>
+                <td>{{ metrics.labels[i] }}</td>
+                <td>{{ metrics.precision[i] }}</td>
+                <td>{{ metrics.recall[i] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <h3>Confusion Matrix</h3>
+        <table border="1" cellpadding="5">
+            {% for row in metrics.confusion_matrix %}
+            <tr>
+                {% for val in row %}
+                <td>{{ val }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+</body>
+</html>

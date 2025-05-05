@@ -1,0 +1,27 @@
+{
+    "accuracy": 0.8009,
+    "precision": [
+        0.9716,
+        0.9736,
+        0.8625,
+        0.56,
+        0.5371,
+        0.922
+    ],
+    "recall": [
+        0.9588,
+        0.9701,
+        0.8312,
+        0.499,
+        0.6139,
+        0.9471
+    ],
+    "labels": [
+        "age",
+        "ethnicity",
+        "gender",
+        "not_cyberbullying",
+        "other_cyberbullying",
+        "religion"
+    ]
+}
